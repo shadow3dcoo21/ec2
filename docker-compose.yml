@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nodejs:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/tiktok # URI de MongoDB
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
